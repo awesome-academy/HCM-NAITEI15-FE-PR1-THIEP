@@ -1,0 +1,31 @@
+header
+    .header__top.row
+        .header__social.row
+            mixin icon(icon)
+                li 
+                    i(class=icon)
+            ul.row
+                +icon('bi bi-facebook')
+                +icon('bi bi-twitter')
+                +icon('bi bi-instagram')   
+        .header__login
+            a.login(href="#") Đăng nhập 
+            a.register(href="#") Đăng ký
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        .container
+            a.navbar-brand(href='#') Your Logo
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+
+            .collapse.navbar-collapse#navbarSupportedContent
+                ul.navbar-nav.ml-auto
+                    li.nav-item
+                        a.nav-link(href='#') Home
+                    li.nav-item
+                        a.nav-link(href='#') About
+                    li.nav-item
+                        a.nav-link(href='#') Services
+                    li.nav-item
+                        a.nav-link(href='#') Contact
+    //this is header 
+
