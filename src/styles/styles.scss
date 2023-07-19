@@ -1,13 +1,7 @@
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
 @import "reset";
-body {
-  font-family: Arial, sans-serif;
-}
+@import "variables";
+@import "header";
+@import "home";
 
-h1 {
-  color: red;
-}
-
-p {
-  color: #333;
-}
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";

@@ -5,6 +5,8 @@ const autoprefixer = require("gulp-autoprefixer");
 const plumber = require("gulp-plumber");
 const browsersync = require("browser-sync").create();
 
+
+
 /* Options
  * ------ */
 const options = {
@@ -19,6 +21,10 @@ const options = {
   browserSync: {
     baseDir: "public",
   },
+  images: {
+    src: "src/images/**/*",
+    dest: "public/images",
+  }
 };
 
 /* Views */
@@ -58,6 +64,13 @@ function styles() {
     .pipe(browsersync.reload({ stream: true }));
 }
 
+/* Images */
+function images() {
+  return gulp.src(options.images.src)
+    .pipe(gulp.dest(options.images.dest))
+    .pipe(browsersync.reload({ stream: true }));
+}
+
 /* Dev task */
 function dev() {
   browsersync.init({
@@ -68,9 +81,14 @@ function dev() {
   });
   gulp.watch("src/**/*.pug", views);
   gulp.watch("src/**/*.scss", styles);
+  gulp.watch("src/images/**/*", images);
+  
 }
 
+
+exports.images = images;
 exports.views = views;
 exports.styles = styles;
 exports.dev = dev;
 exports.default = dev;
+exports.images = images;
