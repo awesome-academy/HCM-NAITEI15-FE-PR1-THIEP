@@ -4,20 +4,25 @@ const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require("gulp-autoprefixer");
 const plumber = require("gulp-plumber");
 const browsersync = require("browser-sync").create();
-
 /* Options
  * ------ */
 const options = {
   pug: {
-    src: ["src/views/pages/**/*.pug","src/views/layout/**/*.pug"],
-    dest: "public"
+
+    src: ["src/views/pages/**/*.pug", "src/views/layout/**/*.pug"],
+    dest: "public",
   },
   styles: {
     src: "src/styles/styles.scss",
-    dest: "public/styles"
+    dest: "public/styles",
   },
   browserSync: {
-    baseDir: "public"
+    baseDir: "public",
+  },
+  images: {
+    src: "src/images/**/*",
+    dest: "public/images",
+
   }
 };
 
@@ -36,7 +41,9 @@ function views() {
     .pipe(gulp.dest(options.pug.dest))
     .pipe(
       browsersync.reload({
-        stream: true
+
+        stream: true,
+
       })
     );
 }
@@ -58,19 +65,36 @@ function styles() {
     .pipe(browsersync.reload({ stream: true }));
 }
 
+
+/* Images */
+function images() {
+  return gulp.src(options.images.src)
+    .pipe(gulp.dest(options.images.dest))
+    .pipe(browsersync.reload({ stream: true }));
+}
+
+
 /* Dev task */
 function dev() {
   browsersync.init({
     server: {
-      baseDir: options.browserSync.baseDir
+
+      baseDir: options.browserSync.baseDir,
     },
-    port: 3000
+    port: 3000,
   });
   gulp.watch("src/**/*.pug", views);
   gulp.watch("src/**/*.scss", styles);
+  gulp.watch("src/images/**/*", images);
+  
 }
+
+
+exports.images = images;
 
 exports.views = views;
 exports.styles = styles;
 exports.dev = dev;
 exports.default = dev;
+
+exports.images = images;

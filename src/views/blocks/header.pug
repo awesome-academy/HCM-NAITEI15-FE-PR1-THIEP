@@ -1,31 +1,103 @@
-header
-    .header__top.row
-        .header__social.row
-            mixin icon(icon)
-                li 
-                    i(class=icon)
-            ul.row
-                +icon('bi bi-facebook')
-                +icon('bi bi-twitter')
-                +icon('bi bi-instagram')   
-        .header__login
-            a.login(href="#") Đăng nhập 
-            a.register(href="#") Đăng ký
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
-        .container
-            a.navbar-brand(href='#') Your Logo
-            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-                span.navbar-toggler-icon
 
-            .collapse.navbar-collapse#navbarSupportedContent
-                ul.navbar-nav.ml-auto
-                    li.nav-item
-                        a.nav-link(href='#') Home
-                    li.nav-item
-                        a.nav-link(href='#') About
-                    li.nav-item
-                        a.nav-link(href='#') Services
-                    li.nav-item
-                        a.nav-link(href='#') Contact
-    //this is header 
+include ../mixins/menu_item.pug
+include ../mixins/dropdown_item.pug
+include ../mixins/cart_item.pug
+- const menuData = [{title: 'Máy khoan đa năng',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện', 'Máy ép gỗ chuẩn Nano']},{title: 'Máy cắt plasmar',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện', 'Máy ép gỗ chuẩn Nano']},{title: 'Máy phay công nghiệp',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện', 'Máy ép gỗ chuẩn Nano']},{title: 'Máy ép nhựa thủ công',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện']},{title: 'Máy uốn tôn điện',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện']},{title: 'Máy nén khí CNC',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện']}]
+header.container
+    .header__top.d-flex.justify-content-between
+        .header__social.d-flex.d-none.d-lg-block
+            mixin icon(icon)
+                li.p-3
+                    i(class=icon)
+            ul.d-flex
+                +icon('bi bi-facebook')
+
+                +icon('bi bi-google')
+                +icon('bi bi-instagram')   
+                +icon('bi bi-twitter')
+        .header__login.d-flex.align-items-center
+            a.login.text-uppercase.text-dark.p-4(href="#") Đăng nhập 
+            a.register.text-uppercase.text-dark.p-4(href="#") Đăng ký
+    .header__bottom.w-100
+        .d-flex.align-items-center.justify-content-between.flex-lg-row.flex-column
+            .header__logo
+                img.img-fluid(src="../images/lgo.jpg" alt="logo image")
+
+            mixin hotline(title, text)
+                .hotline.d-none.d-lg-block
+                    h5.text-primary.pb-1= title 
+                    p= text
+
+            +hotline('HOTLINE','(04) 9500 9650 - (04) 9500 8850')
+            +hotline('ĐẶT HÀNG NHANH:','(04) 9500 9650 - (04) 9500 8850')
+            .header__search
+                form.input-group.border.rounded-pill.d-flex.align-items-center.justify-content-center.w-100
+                    input.form-control.text-secondary.border-0.display-4(type="search" placeholder="Tìm kiếm ..." aria-describedby="button-addon3")
+                    .input-group-append.border-0
+                    button#button-addon3(type="search" class="btn btn-link")
+                        i.bi.bi-search
+
+
+
+
+nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary.mt-2
+    .container
+
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#main_nav')
+            span.navbar-toggler-icon
+        .collapse.navbar-collapse#main_nav
+            ul.navbar-nav
+                li.nav-item.active
+                    a.nav-link(href='#') Trang chủ 
+                li.nav-item.dropdown.custom-dropdown
+                    a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside') Giới thiệu
+                    ul.dropdown-menu
+                        +dropdownItem('Giới thiệu chung')
+
+
+                        li.dropend.dropdownItem
+
+                            a.dropdown-item.dropdown-toggle(href='#' data-bs-toggle='dropdown' data-bs-auto-close='outside')
+                                i.bi.bi-caret-right-fill Hệ thống cửa hàng
+                            ul.dropdown-menu
+                                - const storeList = ['Hệ thống cửa hàng A1', 'Hệ thống cửa hàng A2', 'Hệ thống cửa hàng A3','Hệ thống cửa hàng A4','Hệ thống cửa hàng A5']
+                                    each store in storeList
+                                        +dropdownItem(store)
+
+                        +dropdownItem('Chính sách ưu đãi')
+                        +dropdownItem('Thông tin tuyển dụng ')
+
+                li.nav-item.dropdown.has-megamenu
+                    a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown') Sản phẩm 
+                    .dropdown-menu.megamenu(role='menu')
+                        .container
+                            .row.d-flex.justify-content-between.px-3
+                                .col-9
+                                    .row.d-flex.justify-content-between
+                                        each menu in menuData
+                                            +menuItem(menu.title, menu.items)
+
+
+
+                                        
+                                .col-3
+                                    img(src="../images/mega_img.jpg" alt="mega image")
+
+
+                li.nav-item
+                    a.nav-link(href='#') Tin khuyến mại 
+                li.nav-item
+                    a.nav-link(href='#') Dịch vụ 
+                li.nav-item
+                    a.nav-link(href='#') Liên hệ 
+            ul.navbar-nav.ms-auto
+
+                li.nav-item.dropdown.cart-dropdown
+                    a.nav-link.dropdown-toggle.cart(href='#' data-bs-toggle='dropdown')
+                        i.bi.bi-basket
+                            span.cart__number 2
+                    
+
+
+
 

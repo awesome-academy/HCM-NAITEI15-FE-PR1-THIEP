@@ -1,0 +1,11 @@
+mixin menuItem(title, items)
+    .col-lg-4.mb-2 
+        .mb-1.text-uppercase.d-flex.align-item-center
+            i.bi.bi-facebook.text-primary.mx-1
+            h7.display-7.fw-bold= title
+        ul.mega_list
+            each val in items
+
+                li.bi.bi-caret-right-fill.p-1 
+                    a.text-secondary.text-normal.text-gray.mega_item= val
+

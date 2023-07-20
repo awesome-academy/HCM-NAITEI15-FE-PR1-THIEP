@@ -1,4 +1,12 @@
 
+
+@import "reset";
+@import "variables";
+@import "header";
+@import "home";
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+=======
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "reset";
 body {
@@ -13,3 +21,4 @@ body {
     color: #333;
   }
   
+
