@@ -1,8 +1,8 @@
-
 include ../mixins/menu_item.pug
 include ../mixins/dropdown_item.pug
 include ../mixins/cart_item.pug
 - const menuData = [{title: 'Máy khoan đa năng',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện', 'Máy ép gỗ chuẩn Nano']},{title: 'Máy cắt plasmar',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện', 'Máy ép gỗ chuẩn Nano']},{title: 'Máy phay công nghiệp',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện', 'Máy ép gỗ chuẩn Nano']},{title: 'Máy ép nhựa thủ công',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện']},{title: 'Máy uốn tôn điện',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện']},{title: 'Máy nén khí CNC',items: ['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện']}]
+- const cartItems = [{name: 'Máy khoan Black decker',image: '../images/cart_item1.jpg',price: '1.250.000',},{name: 'Máy khoan Black decker',image: '../images/cart_item2.jpg',price: '1.250.000',},{name: 'Máy khoan Black decker',image: '../images/cart_item3.jpg',price: '1.250.000',},]
 header.container
     .header__top.d-flex.justify-content-between
         .header__social.d-flex.d-none.d-lg-block
@@ -94,9 +94,17 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary.mt-2
 
                 li.nav-item.dropdown.cart-dropdown
                     a.nav-link.dropdown-toggle.cart(href='#' data-bs-toggle='dropdown')
-                        i.bi.bi-basket
+                        i.bi.bi-basket.cart__icon
                             span.cart__number 2
-                    
+                    ul.dropdown-menu.dropdown-cart.dropdown-menu-end(role="menu")
+                        each item in cartItems
+                             +cartItem(item)
+                        .total.text-end.mt-2.me-3
+                            span.text-uppercase.fw-bold Tổng tiền
+                            span.text-danger.fw-bold.p-2 2.222.222
+                            span.text-danger.fw-bold.ms-1 Đ 
+                        .btn-checkout.text-end.p-3
+                            button.btn.btn-primary.text-light Thanh toán
 
 
 
