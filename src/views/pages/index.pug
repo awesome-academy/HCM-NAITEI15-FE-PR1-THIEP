@@ -1,10 +1,27 @@
 extends ../layout/default-layout
-
+include ../mixins/content_item.pug
+include ../mixins/sidebar_item.pug
+include ../mixins/product_item.pug
+include ../mixins/category_btn.pug
+include ../mixins/sale_banner.pug
+include ../mixins/product_special.pug
+include ../mixins/product_row.pug
+include ../mixins/section_header.pug
+include ../mixins/carousel_item.pug
+include ../mixins/carousel_indicator.pug
+include ../mixins/carousel.pug
+ 
 block vars
-  - pageTitle = "My Website - Home"
+  - pageTitle = "My Website - Homee "
 
 block content
+  - const carouselImages = [{ src: "../images/slider.jpg", alt: "Slider image 1" },{ src: "../images/slider.jpg", alt: "Slider image 2" },{ src: "../images/slider.jpg", alt: "Slider image 3" },]
+  - const contentItems = [  { icon: 'bi bi-airplane-fill', title: 'Miễn phí vận chuyển xccc', description: 'Chúng tôi vận chuyển miễn phí cho đơn hàng trị giá trên 1.000.000 VND' },  { icon: 'bi bi-arrow-repeat', title: 'Chính sách đổi trả', description: 'Nếu phát hiện lỗi của nhà sản xuất, chúng tôi sẽ đổi sản phẩm mới trong vòng 7 ngày đầu tiên' },  { icon: 'bi bi-gift-fill', title: 'Khuyến mại hàng tuần', description: 'Mỗi thứ 7 hàng tuần đều có chương trình giảm giá và khuyến mại lớn' },  { icon: 'bi bi-star-fill', title: 'Cam kết hàng chính hãng', description: 'Chúng tôi cam kết hàng chính hãng 100% đối với các loại sản phẩm' }]
 
-  h1 Welcome to My Website jhjdhdjjdkdkjdkdjkdj
-  p This is the homepage.
-
+  .container 
+    section#slider.mt-3 
+      .slider-container.d-flex.mt-3.row
+        +carousel(carouselImages)
+        .slider__content.border.col-lg-4
+            each item in contentItems
+              +content_item(item.icon, item.title, item.description)

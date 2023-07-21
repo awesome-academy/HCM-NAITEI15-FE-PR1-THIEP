@@ -1,0 +1,12 @@
+mixin carouselIndicator(index, isActive = false)
+  button.btn.btn__slider__item(
+    type="button", 
+    data-bs-target="#mySlider", 
+    data-bs-slide-to=index, 
+    class=isActive ? "active" : "", 
+    aria-current=isActive, 
+    aria-label=`Slide ${index + 1}`
+  )
+
+
+
