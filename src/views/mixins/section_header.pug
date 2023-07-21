@@ -1,0 +1,17 @@
+include ../mixins/category_btn.pug
+mixin sectionHeader(title, categories)
+  .section__header.d-flex.align-items-center.justify-content-between.my-4
+    .header--left.d-flex.align-items-center.justify-content-between
+      i.bi.bi-grid-fill.mx-2.p-1.text-primary 
+      h4.text-uppercase.fw-bold= title
+    .header--right.d-flex.align-items-center.justify-content-between
+        .category-group.g-2.align-items-center.justify-content-between.d-none.d-lg-flex
+            
+                each category in categories
+                    +categoryBtn(category)
+
+        .icon-group
+            i.bi.bi-caret-left-fill.border.p-2
+            i.bi.bi-caret-right-fill.border.p-2
+
+
