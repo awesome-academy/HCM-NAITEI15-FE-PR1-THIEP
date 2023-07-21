@@ -1,0 +1,10 @@
+mixin content_item(icon,title,description)
+    .content__item.d-flex.justify-content-between.align-item-center.p-4
+        .content__icon.text-primary.p-2.display-6
+            i(class= icon)
+        .content.ps-3
+            .content__title.p-1
+                h6.text-uppercase=title 
+            .content__des.p-1
+                p=description
+    .line
