@@ -1,0 +1,13 @@
+mixin cartItem(item)
+    .cart__item.d-flex.justify-content-between.p-2
+        img.image-fluid.cart__img.me-3(src= item.image, alt="cart item") 
+        .description 
+            .name.text-uppercase.mb-2= item.name 
+            .price 
+                span.quality 1 x 
+                span.text-danger.fw-bold= item.price
+                span.text-danger.fw-bold.ms-1 Đ
+        .btn_close
+            i.bi.bi-x.fw-bold
+    .cart__line
+
