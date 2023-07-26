@@ -1,0 +1,13 @@
+mixin footerItem(title, items)
+  .footer__item
+    .title.d-flex.justify-content-start.align-items-center
+      i.bi.bi-grid-fill.text-primary.mx-2
+      h5= title
+    ul.p-2
+      each item in items
+
+        li.d-flex.py-2
+          if item.icon
+            i(class=item.icon)
+          span= item.text
+
