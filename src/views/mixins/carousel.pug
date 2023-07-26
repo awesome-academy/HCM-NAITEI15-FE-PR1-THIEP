@@ -1,0 +1,10 @@
+mixin carousel(images)
+    .carousel.slide.col-lg-8.p-0(data-bs-ride="carousel")
+        .carousel-inner
+            each image, index in images
+                +carouselItem(image.src, image.alt, index === 0)
+
+        .carousel-indicators.d-flex.justify-content-center.mt-3.carousel__btn
+            each index, i in images
+                +carouselIndicator(index, i === 0)
+
