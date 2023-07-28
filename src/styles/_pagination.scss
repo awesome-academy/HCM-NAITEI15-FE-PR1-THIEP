@@ -1,0 +1,15 @@
+#pagination{
+    .pagination__product{
+        .page-item{
+            
+          .page-link{
+            color: $third !important;
+            border-radius: 0% !important;
+            &:hover{
+              color: $white !important;
+              background-color: $primary !important;
+            }
+          }
+        }
+      }
+}
