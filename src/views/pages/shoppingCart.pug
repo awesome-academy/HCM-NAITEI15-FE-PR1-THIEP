@@ -1,0 +1,37 @@
+include ../mixins/checkout-row.pug
+mixin shoppingCart
+
+    #shoppingCart
+        .container 
+            +pageHeader('Trang chủ', 'Giỏ hàng')
+            .page__container 
+                table.table.fw-bold.shopping-cart-table
+                    thead.table__head
+                        tr
+                            each column in ['STT', 'sản phẩm', 'Thông tin', 'Đơn giá', 'Số lượng', 'Thành tiền', 'Xóa']
+                                th.text-uppercase.border-bottom.py-3(scope='col') #{column}
+
+                    tbody
+                        each item, index in [{ imgSrc: '../images/shoppingcart1.jpg', alt: 'shopping cart image', product: 'Máy khoan, máy cắt đa năng CNC', price: '2.350.000 Đ', quantity: '1', total: '2.350.000 Đ' },{ imgSrc: '../images/shoppingcart2.jpg', alt: 'shopping cart image', product: 'Máy khoan, máy cắt đa năng CNC', price: '2.350.000 Đ', quantity: '1', total: '2.350.000 Đ' },{ imgSrc: '../images/shoppingcart3.jpg', alt: 'shopping cart image', product: 'Máy khoan, máy cắt đa năng CNC', price: '2.350.000 Đ', quantity: '1', total: '2.350.000 Đ' }]
+                            tr
+                                th(scope='row') #{index + 1}
+                                td 
+                                    img(src=item.imgSrc, alt=item.alt)
+                                td.text-uppercase #{item.product}
+                                td #{item.price}
+                                td 
+                                    span.border.py-3.px-4 #{item.quantity}
+                                td #{item.total}
+                                td 
+                                    a
+                                        i.bi.bi-x.text-danger.fw-bold.display-6
+                .checkout.text-center
+                    +checkoutRow('Tổng tiền', '6.850.000 Đ')
+                    +checkoutRow('Thuế (VAT):', '6.850.000 Đ')
+                    +checkoutRow('Thanh toán', '7.520.000 Đ', 'text-danger checkout__total')
+                .checkout__btn.d-flex.justify-content-end.mt-3
+                    button.btn.btn-secondary.p-3.text-uppercase Tiếp tục mua hàng
+                    button.btn.btn-primary.p-3.ms-2.text-uppercase.text-light Thanh toán
+
+
+

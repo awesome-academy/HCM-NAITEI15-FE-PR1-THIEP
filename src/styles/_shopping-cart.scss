@@ -1,0 +1,21 @@
+#shoppingCart {
+  .shopping-cart-table {
+    .table__head {
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 8px 0px;
+    }
+  }
+  
+  .checkout {
+    
+    .total{
+        width: 200px;
+    }
+    .label{
+        width: 230px;
+
+    }
+    .checkout__total{
+        font-size: 25px;
+      }
+  }
+}
