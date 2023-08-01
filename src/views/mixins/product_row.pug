@@ -1,0 +1,26 @@
+mixin productRow(name,price,img,description)
+   
+        .product__item.d-flex.align-items-center.px-1.py-4.h-100.justify-content-around.bg-light
+            img.img-fluid(src= img, alt="product image")
+            .description.text-center.mt-2 
+                
+
+                .product__name.text-uppercase.fw-bold.m-1= name
+                .product__review.d-flex.align-items-center.justify-content-center.m-1
+                    .star__icon.text-primary 
+                        i.bi.bi-star-fill
+                        i.bi.bi-star-fill
+                        i.bi.bi-star-fill
+                        i.bi.bi-star-fill
+                        i.bi.bi-star
+                    span (12 đơn đánh giá )
+                .product__des 
+                    p= description 
+                .product__price.text-danger.fw-bold.m-1= price
+                .product__btn--show.d-flex.justify-content-center.m-1
+                    button.btn.btn-primary.m-1.text-light MUA NGAY 
+                    button.btn.btn-secondary.m-1.text-light XEM CHI TIET
+
+                    
+
+                    
