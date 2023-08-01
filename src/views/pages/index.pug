@@ -9,7 +9,10 @@ include ../mixins/product_row.pug
 include ../mixins/section_header.pug
 include ../mixins/carousel_item.pug
 include ../mixins/carousel_indicator.pug
+
+
 include ../mixins/carousel.pug
+
 
 block vars
   - pageTitle = "My Website - Homee "
@@ -27,8 +30,21 @@ block content
   .container 
     section#slider.mt-3 
       .slider-container.d-flex.mt-3.row
-        +carousel(carouselImages)
+
+        .carousel.slide.col-lg-8.p-0(data-bs-ride="carousel")
+          .carousel-inner
+            +carouselItem("../images/slider.jpg", "Slider image 1",true)
+            +carouselItem("../images/slider.jpg", "Slider image 2")
+            +carouselItem("../images/slider.jpg", "Slider image 3")
+
+          .carousel-indicators.d-flex.justify-content-center.mt-3.carousel__btn
+            each index in [0, 1, 2]
+              +carouselIndicator(index, index === 0)
+
+
+
         .slider__content.border.col-lg-4
+          
             each item in contentItems
               +content_item(item.icon, item.title, item.description)
     section#featured-products.my-5
@@ -39,10 +55,15 @@ block content
             .sidebar.d-none.d-lg-block
               ul.sibebar__list
 
+                - const items = ['Máy khoan cắt CMD','Máy phun khổ lớn','Máy quét Cannon 3D','Máy hàn điện Alumina','Máy khoan Decameta','Máy khoan đa năng CMD','Máy mài, tiện DC 12V','Máy khoan cắt CNC','Máy quay thông minh N3','Motor R34C đa dụng','Máy in laser màu 3D']
+
+
                   each item in items
                     +sidebarItem(item)
           .col-lg-9
             .product              
+
+             
               .row.g-5
                 each product in products 
                   .col-lg-4
@@ -51,6 +72,8 @@ block content
       +sectionHeader('Sản phẩm mới', ['Máy khoan', 'Máy in 3D', 'Máy CNC', 'Máy khác'])
       .section__container
         .row.g-5
+
+
 
           each product in newProducts
             .col-lg-4
@@ -84,12 +107,14 @@ block content
       +sectionHeader('Hàng mới về', [])
       .section__container
         .row.g-5
+
           each product in productRows
 
             .col-lg-6
               +productRow(product.name, product.price, product.image,product.description)
     section#brand 
       .row.d-flex.justify-content-center.py-4
+
           each image in brandImages
             .col.text-center
               img(src=`../images/${image}`, alt="brand image")
@@ -99,7 +124,21 @@ block content
       .next__btn
         i.bi.bi-chevron-right
 
-  
+
+  section#newsletter 
+    .container.text-center.p-5
+      .letter.p-2
+        h2.text-light Đăng ký để nhận tin tức khuyến mãi mỗi tuần
+
+      .letter__form.p-3
+        form(action="")
+          .d-flex.justify-content-center
+            input.form-control.rounded-pill.mx-3.p-2(type="email" placeholder="Nhập địa chỉ email của bạn ..." name="email")
+            button.btn.btn-primary.rounded-pill.display-5.text-light.register__btn.p-2.text-uppercase(type="submit") Đăng ký
+
+
+
+
 
 
 
