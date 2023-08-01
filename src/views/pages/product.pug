@@ -36,7 +36,9 @@ mixin productPage
                 .tab-content#myTabContent
                   .tab-pane.fade.show.active#tab1(role="tabpanel" aria-labelledby="tab1-tab")
                     .row.gy-4
-                      //grid page 
+                      each product in productRows
+                        .col-lg-12
+                          +productRow(product.name, product.price, product.image, product.description)
                   .tab-pane.fade#tab2(role="tabpanel" aria-labelledby="tab2-tab")
                     .row.gy-4
                       each product in products
