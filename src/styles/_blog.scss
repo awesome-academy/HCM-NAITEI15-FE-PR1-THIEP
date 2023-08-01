@@ -1,0 +1,52 @@
+.sidebar__img img {
+  min-width: 94px;
+}
+.tag__item {
+  font-style: italic;
+  color: $light-gray;
+  &:hover {
+    background-color: $secondary;
+    color: $white !important;
+  }
+}
+.blog-item {
+  .blog__des {
+    font-style: italic;
+    color: $third;
+  }
+}
+.blog__social__icon {
+  font-size: 24px;
+  padding: 10px 13px !important;
+  &:hover {
+    color: $white;
+    background-color: $primary;
+  }
+}
+.blog__tag {
+  &:hover {
+    color: $primary;
+    cursor: pointer;
+  }
+}
+.blog__container {
+  .blog__content {
+    .blog__detail__img {
+      margin: 0 auto;
+    }
+    .blog__text{
+        text-align: justify;
+    }
+  }
+}
+.blog__cmt {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 8px 0px;
+  .cmt__reply {
+    margin-left: 120px !important;
+  }
+  .comment_body {
+    color: $third;
+
+    font-style: italic;
+  }
+}

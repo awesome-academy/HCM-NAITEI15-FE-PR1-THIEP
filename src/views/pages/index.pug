@@ -12,7 +12,7 @@ include ../mixins/carousel_indicator.pug
 
 
 include ../mixins/carousel.pug
- 
+
 
 block vars
   - pageTitle = "My Website - Homee "
@@ -20,6 +20,12 @@ block vars
 block content
   - const carouselImages = [{ src: "../images/slider.jpg", alt: "Slider image 1" },{ src: "../images/slider.jpg", alt: "Slider image 2" },{ src: "../images/slider.jpg", alt: "Slider image 3" },]
   - const contentItems = [  { icon: 'bi bi-airplane-fill', title: 'Miễn phí vận chuyển xccc', description: 'Chúng tôi vận chuyển miễn phí cho đơn hàng trị giá trên 1.000.000 VND' },  { icon: 'bi bi-arrow-repeat', title: 'Chính sách đổi trả', description: 'Nếu phát hiện lỗi của nhà sản xuất, chúng tôi sẽ đổi sản phẩm mới trong vòng 7 ngày đầu tiên' },  { icon: 'bi bi-gift-fill', title: 'Khuyến mại hàng tuần', description: 'Mỗi thứ 7 hàng tuần đều có chương trình giảm giá và khuyến mại lớn' },  { icon: 'bi bi-star-fill', title: 'Cam kết hàng chính hãng', description: 'Chúng tôi cam kết hàng chính hãng 100% đối với các loại sản phẩm' }]
+
+  - const items = ['Máy khoan cắt CMD','Máy phun khổ lớn','Máy quét Cannon 3D','Máy hàn điện Alumina','Máy khoan Decameta','Máy khoan đa năng CMD','Máy mài, tiện DC 12V','Máy khoan cắt CNC','Máy quay thông minh N3','Motor R34C đa dụng','Máy in laser màu 3D']
+  - const products = [{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product1.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product2.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product3.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product4.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product5.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product6.jpg'}]              
+  - const newProducts = [{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product10.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product8.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product11.jpg'}]              
+  - const productRows = [{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product7.jpg',description:"lorelkn"},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product8.jpg',description:"lorelkn" },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product9.jpg',description:"lorelkn"},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product10.jpg',description:"lorelkn" }]              
+  - const brandImages = ["brand1.jpg", "brand2.jpg", "brand3.jpg", "brand4.jpg", "brand5.jpg"]
 
   .container 
     section#slider.mt-3 
@@ -38,7 +44,7 @@ block content
 
 
         .slider__content.border.col-lg-4
-          - const contentItems = [  { icon: 'bi bi-airplane-fill', title: 'Miễn phí vận chuyển', description: 'Chúng tôi vận chuyển miễn phí cho đơn hàng trị giá trên 1.000.000 VND' },  { icon: 'bi bi-arrow-repeat', title: 'Chính sách đổi trả', description: 'Nếu phát hiện lỗi của nhà sản xuất, chúng tôi sẽ đổi sản phẩm mới trong vòng 7 ngày đầu tiên' },  { icon: 'bi bi-gift-fill', title: 'Khuyến mại hàng tuần', description: 'Mỗi thứ 7 hàng tuần đều có chương trình giảm giá và khuyến mại lớn' },  { icon: 'bi bi-star-fill', title: 'Cam kết hàng chính hãng', description: 'Chúng tôi cam kết hàng chính hãng 100% đối với các loại sản phẩm' }]
+          
             each item in contentItems
               +content_item(item.icon, item.title, item.description)
     section#featured-products.my-5
@@ -48,13 +54,16 @@ block content
           .col-lg-3 
             .sidebar.d-none.d-lg-block
               ul.sibebar__list
+
                 - const items = ['Máy khoan cắt CMD','Máy phun khổ lớn','Máy quét Cannon 3D','Máy hàn điện Alumina','Máy khoan Decameta','Máy khoan đa năng CMD','Máy mài, tiện DC 12V','Máy khoan cắt CNC','Máy quay thông minh N3','Motor R34C đa dụng','Máy in laser màu 3D']
+
 
                   each item in items
                     +sidebarItem(item)
           .col-lg-9
             .product              
-              - const products = [{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product1.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product2.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product3.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product4.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product5.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product6.jpg'}]              
+
+             
               .row.g-5
                 each product in products 
                   .col-lg-4
@@ -63,7 +72,8 @@ block content
       +sectionHeader('Sản phẩm mới', ['Máy khoan', 'Máy in 3D', 'Máy CNC', 'Máy khác'])
       .section__container
         .row.g-5
-          - const newProducts = [{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product10.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product8.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product11.jpg'}]              
+
+
 
           each product in newProducts
             .col-lg-4
@@ -97,14 +107,14 @@ block content
       +sectionHeader('Hàng mới về', [])
       .section__container
         .row.g-5
-          - const productRows = [{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product7.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product8.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product9.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product10.jpg' }]              
+
           each product in productRows
 
             .col-lg-6
               +productRow(product.name, product.price, product.image,product.description)
     section#brand 
       .row.d-flex.justify-content-center.py-4
-        - const brandImages = ["brand1.jpg", "brand2.jpg", "brand3.jpg", "brand4.jpg", "brand5.jpg"]
+
           each image in brandImages
             .col.text-center
               img(src=`../images/${image}`, alt="brand image")
@@ -113,6 +123,7 @@ block content
         i.bi.bi-chevron-left
       .next__btn
         i.bi.bi-chevron-right
+
 
   section#newsletter 
     .container.text-center.p-5
@@ -124,6 +135,7 @@ block content
           .d-flex.justify-content-center
             input.form-control.rounded-pill.mx-3.p-2(type="email" placeholder="Nhập địa chỉ email của bạn ..." name="email")
             button.btn.btn-primary.rounded-pill.display-5.text-light.register__btn.p-2.text-uppercase(type="submit") Đăng ký
+
 
 
 
