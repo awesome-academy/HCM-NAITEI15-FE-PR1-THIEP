@@ -1,0 +1,32 @@
+.sale__product img {
+    max-width: 110px;
+  }
+  .product__quantity{
+    input,button {
+        width: 120px;
+    }}
+    .review__text{
+    border-right: 1px solid $light-gray;
+    }
+  #myTabDetail{
+    .nav-link.active {
+        background-color: $secondary;
+        color: $primary;
+        border-radius: 0;
+      }
+    
+      .nav-link:not(.active) {
+        color: $secondary;
+        border-radius: 0;
+      }
+      
+      
+  }
+  #DetailContent{
+    .detail__text{
+      color : $third;
+      text-align: justify;
+      
+    }
+  }
+ 
