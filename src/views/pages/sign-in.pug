@@ -1,0 +1,34 @@
+extends ../layout/default-layout
+
+block vars
+  - pageTitle = "My Website - Sign in "
+
+block content
+
+    #sign-in
+        .container 
+            +pageHeader('Trang chủ', 'Đăng nhập  ')
+            .page__container 
+                .row.d-flex
+                    .col-lg-6.form__signin.my-5 
+
+                        form
+                            h5.text-uppercase Thông tin đăng nhập
+
+                            .form-row.my-3
+                                +inputField('Họ và tên :', 'name', 'Name', true, '')
+                            .form-row.my-3
+                                +inputField('Email :', 'email', 'Email', false, '')
+                            .d-flex.align-items-center.justify-content-between.my-3 
+                                +checkboxField('defaultCheck1', 'Ghi nhớ đăng nhập ')
+                                a.text-primary.forgot-password Bạn quên mật khẩu ?
+
+                            .form__btn.my-3
+                                button.btn.btn-secondary.py-2.px-3.text-uppercase Đăng nhập 
+                                
+                    .col-lg-6.sign-in-message
+                        h5.text-uppercase.my-3 bạn chưa có tài khoản ? 
+                        .message.my-3
+                            p Đăng kí tài khoản để mua hàng nhanh hơn. Theo dõi đơn hàng, vận chuyển.
+                            p Cập nhật các tin tức sự kiện và các chương trình giảm giá của chúng tôi.
+                        button.btn.btn-primary.py-2.px-3.text-uppercase.text-light Đăng kí 

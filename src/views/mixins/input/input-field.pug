@@ -1,0 +1,8 @@
+mixin inputField(labelText, inputType, inputId, isRequired, placeholder,className)
+  .form-group.my-2(class= className)
+    .input__label.d-flex.my-2(class= className)
+      label(for=inputId)
+        | #{labelText}
+      if isRequired
+        i.bi.bi-asterisk.icon__required.display-7.text-danger.ms-1.mt-1
+    input.form-control(type=inputType, id=inputId, placeholder=placeholder)

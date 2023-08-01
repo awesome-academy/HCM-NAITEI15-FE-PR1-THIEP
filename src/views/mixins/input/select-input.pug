@@ -1,0 +1,6 @@
+mixin selectInput(label, options)
+  li.nav-item.d-flex.align-items-center
+    span.text-nowrap.fw-bold= label
+    select.form-select.mx-2
+      each option in options
+        option(value=option.value)= option.label
