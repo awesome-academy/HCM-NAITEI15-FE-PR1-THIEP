@@ -1,10 +1,45 @@
-doctype html
-html
-  head
-    title My Website - About
-  body
-    h1 Product
-    p This is the about page.
-  //This is the product page
+include ../mixins/sidebar.pug
+include ../mixins/color_category.pug
+include ../mixins/sale_product.pug
+include ../blocks/pagination.pug
+include ../mixins/select-input.pug
+include ../mixins/tab-link.pug
 
+mixin productPage
+  - const items = ['Máy khoan cắt CMD','Máy phun khổ lớn','Máy quét Cannon 3D','Máy hàn điện Alumina','Máy khoan Decameta','Máy khoan đa năng CMD','Máy mài, tiện DC 12V','Máy khoan cắt CNC','Máy quay thông minh N3','Motor R34C đa dụng','Máy in laser màu 3D']
+  - const colorData = [{ color: 'red', colorText: 'Màu đỏ (45)' },{ color: 'yellow', colorText: 'Màu vàng (32)' },{ color: 'blue', colorText: 'Màu xanh (27)' },{ color: 'gray', colorText: 'Màu bạc (16)' },{ color: 'black', colorText: 'Màu đen (9)' }]
+  - const saleProducts = [{ img: '../images/product1.jpg', name: 'Máy khoan Black decker loại 1', price: '1.000.000 Đ' },{ img: '../images/product2.jpg', name: 'Máy khoan Black decker loại 2', price: '2.500.000 Đ' },{ img: '../images/product3.jpg', name: 'Máy khoan Black decker loại 3', price: '800.000 Đ' },{ img: '../images/product4.jpg', name: 'Máy khoan Black decker loại 3', price: '800.000 Đ' },{ img: '../images/product5.jpg', name: 'Máy khoan Black decker loại 3', price: '800.000 Đ' }]
+  - const priceList = ['0 - 200.000 Đ (45)','200.000 Đ - 500.000 Đ (32)','500.000 Đ - 1.000.000 Đ (17)','1.000.000 - 2.000.000 Đ (16)','Trên 2.000.000 Đ (9)']
+  - const products = [{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product1.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product2.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product3.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product4.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product5.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product6.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product7.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product8.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product9.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product1.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product2.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product3.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product4.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product5.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product6.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product7.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product8.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product9.jpg' }]    
 
+  #productPage
+    .container 
+      +pageHeader('Trang chủ', 'Danh mục sản phẩm')
+      .page__container 
+        .row 
+          .col-lg-3 
+            +sidebar('Danh mục sản phẩm','bi-list' ,items)
+            +sidebar('Tìm theo mức giá','bi-currency-dollar' ,priceList)
+            +colorCategory('Tìm theo màu sắc', colorData)              
+            +saleProduct(saleProducts)
+          .col-lg-9
+            .product 
+              .row    
+                ul.nav.nav-tabs#myTab(role="tablist").d-flex.justify-content-between.align-items-center.my-2
+                  .left-side.d-flex.justify-content-center.align-items-center.ms-3
+                    +selectInput('Sắp xếp theo:', [{ value: 'name-asc', label: 'Tên sản phẩm' },{ value: 'price-desc', label: 'Giá' }])
+                    +selectInput('Show :', [{ value: '18', label: '18' }, { value: '24', label: '24' }, { value: '36', label: '36' }])
+                  .right-side.d-flex
+                    +tabLink('tab1', 'list', true)
+                    +tabLink('tab2', 'grid-3x3-gap-fill')
+
+                .tab-content#myTabContent
+                  .tab-pane.fade.show.active#tab1(role="tabpanel" aria-labelledby="tab1-tab")
+                    .row.gy-4
+                      //grid page 
+                  .tab-pane.fade#tab2(role="tabpanel" aria-labelledby="tab2-tab")
+                    .row.gy-4
+                      each product in products
+                        .col-lg-4
+                          +productItem(product.name, product.price, product.image)
+      +pagination

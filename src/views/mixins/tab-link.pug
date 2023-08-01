@@ -1,0 +1,4 @@
+mixin tabLink(tabId, iconClass, isActive = false)
+  li.nav-item
+    a.nav-link.border(class=isActive ? 'active' : '', id=tabId + '-tab', data-bs-toggle='tab', href='#' + tabId, role='tab', aria-controls=tabId, aria-selected=isActive)
+      i.bi(class='bi-' + iconClass + ' fw-bold tab__icon')
