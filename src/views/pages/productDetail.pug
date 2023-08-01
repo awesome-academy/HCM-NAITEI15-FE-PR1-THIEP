@@ -1,0 +1,101 @@
+extends ../layout/default-layout
+
+block vars
+    - pageTitle = "My Website - Product details "
+
+block content
+
+    - const productRows = [{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product7.jpg',description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dignissimos? Labore quo vitae minus ex ipsum cumque facilis optio, distinctio iusto ipsa animi natus molestiae. Consectetur maxime exercitationem nihil quaerat?"},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product8.jpg',description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dignissimos? Labore quo vitae minus ex ipsum cumque facilis optio, distinctio iusto ipsa animi natus molestiae. Consectetur maxime exercitationem nihil quaerat?" },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product9.jpg',description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dignissimos? Labore quo vitae minus ex ipsum cumque facilis optio, distinctio iusto ipsa animi natus molestiae. Consectetur maxime exercitationem nihil quaerat?"},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product10.jpg',description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dignissimos? Labore quo vitae minus ex ipsum cumque facilis optio, distinctio iusto ipsa animi natus molestiae. Consectetur maxime exercitationem nihil quaerat?" },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product7.jpg',description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dignissimos? Labore quo vitae minus ex ipsum cumque facilis optio, distinctio iusto ipsa animi natus molestiae. Consectetur maxime exercitationem nihil quaerat?"},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product7.jpg',description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dignissimos? Labore quo vitae minus ex ipsum cumque facilis optio, distinctio iusto ipsa animi natus molestiae. Consectetur maxime exercitationem nihil quaerat?"},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product7.jpg',description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dignissimos? Labore quo vitae minus ex ipsum cumque facilis optio, distinctio iusto ipsa animi natus molestiae. Consectetur maxime exercitationem nihil quaerat?"},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product7.jpg',description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, dignissimos? Labore quo vitae minus ex ipsum cumque facilis optio, distinctio iusto ipsa animi natus molestiae. Consectetur maxime exercitationem nihil quaerat?"}]              
+    - const items = ['Máy khoan cắt CMD','Máy phun khổ lớn','Máy quét Cannon 3D','Máy hàn điện Alumina','Máy khoan Decameta','Máy khoan đa năng CMD','Máy mài, tiện DC 12V','Máy khoan cắt CNC','Máy quay thông minh N3','Motor R34C đa dụng','Máy in laser màu 3D']
+    - const colorData = [{ color: 'red', colorText: 'Màu đỏ (45)' },{ color: 'yellow', colorText: 'Màu vàng (32)' },{ color: 'blue', colorText: 'Màu xanh (27)' },{ color: 'gray', colorText: 'Màu bạc (16)' },{ color: 'black', colorText: 'Màu đen (9)' }]
+    - const saleProducts = [{ img: '../images/product1.jpg', name: 'Máy khoan Black decker loại 1', price: '1.000.000 Đ' },{ img: '../images/product2.jpg', name: 'Máy khoan Black decker loại 2', price: '2.500.000 Đ' },{ img: '../images/product3.jpg', name: 'Máy khoan Black decker loại 3', price: '800.000 Đ' },{ img: '../images/product4.jpg', name: 'Máy khoan Black decker loại 3', price: '800.000 Đ' },{ img: '../images/product5.jpg', name: 'Máy khoan Black decker loại 3', price: '800.000 Đ' }]
+    - const priceList = ['0 - 200.000 Đ (45)','200.000 Đ - 500.000 Đ (32)','500.000 Đ - 1.000.000 Đ (17)','1.000.000 - 2.000.000 Đ (16)','Trên 2.000.000 Đ (9)']
+    - const products = [{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product1.jpg' },{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product2.jpg'},{ name: 'Máy khoan Black decker', price: '1.550.000 Đ', image: '../images/product3.jpg'}]    
+
+    #productDetail
+        .container 
+        
+            +pageHeader('Trang chủ', 'Máy khoan CNC 3D', 'Danh mục sản phẩm')
+            .page__container 
+                .row 
+                    .col-lg-3 
+                        +sidebar('Danh mục sản phẩm','bi-list' ,items)
+
+
+                        +saleProduct(saleProducts)
+                    .col-lg-9
+                        .row 
+                            .col-lg-6.d-flex.flex-column.justify-content-between.align-items-center
+                                img.image-thumnail.img-fluid.p-1.mb-2(src="../images/product-thumbnail.jpg" alt="product thumbnail")
+                                .row.d-flex.justify-content-start.g-1
+                                    .col.img__item
+                                        img(src="../images/product-detail1.jpg" alt="product detail1")
+                                    .col.img__item
+                                        img(src="../images/product-detail2.jpg" alt="product detail1")
+                                    .col.img__item
+                                        img(src="../images/product-detail3.jpg" alt="product detail1")
+                                    .col.img__item
+                                        img(src="../images/product-detail7.jpg" alt="product detail1")
+                                    .col.img__item
+                                        img(src="../images/product-detail5.jpg" alt="product detail1")
+                            .col-lg-6
+                                .description.mt-2.p-2.d-flex.flex-column.justify-content-start.align-items-start 
+                                    .product__name.text-uppercase.fw-bold.m-1
+                                        h4 Máy khoan CNC 3D
+                                    .product__review.d-flex.align-items-center.justify-content-center.m-1
+                                        .star__icon.text-primary 
+                                            i.bi.bi-star-fill
+                                            i.bi.bi-star-fill
+                                            i.bi.bi-star-fill
+                                            i.bi.bi-star-fill
+                                            i.bi.bi-star
+                                        span.review__text.pe-3.font-italic (12 đơn đánh giá )
+                                        span.text-decoration-underline.ps-3.fw-bold Gửi bình luận của bạn 
+
+                                    .product__price.text-danger.m-1
+                                        h4.fw-bold GNY: 2.350.000 Đ
+                                    .product__des.m-1 
+                                        p.fw-bold Thông tin sản phẩm :
+                                        span Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore maxime similique eos. Perspiciatis numquam alias vel inventore nulla et amet, eligendi non aliquid maiores tempora nisi in iste facilis placeat.
+                                    .d-flex.justify-content-between.border.p-3.my-1 
+                                        .select-size.w-100.mx-3
+                                            span.fw-bold.my-1 Size:
+                                            select.form-select
+                                                option(value="name-asc") ---- Chọn size ----
+                                                option(value="name-desc") Giá
+                                        .seclect-color.w-100.mx-3
+                                            span.fw-bold.my-1 Color :
+                                            select.form-select
+                                                option(value="12") ---- Chọn màu ----
+                                                option(value="24") 24 
+                                                option(value="36") 36 
+                                    .product__quantity.d-flex.justify-content-center.m-1
+                                        input.custom-number-input.text-center(type="number" value="1")
+                                        button.btn.btn-primary.ms-3.p-2.text-light MUA NGAY
+                                    .social__img 
+                                        img.img-fluid.w-100(src="../images/social-image.jpg" alt="social image") 
+                            ul.nav.nav-tabs#myTabDetail.my-3(role="tablist").d-flex.justify-content-start.align-items-center.my-2
+                                li.nav-item
+                                a.nav-link.active#tab1-tab.border.p-3(data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true")
+
+                                    h5.text-uppercase Thông tin sản phẩm 
+
+
+                                li.nav-item
+                                a.nav-link#tab2-tab.border.p-3(data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false")
+
+                                    h5.text-uppercase Đánh giá - nhận xét 
+                                li.nav-item
+                                a.nav-link#tab2-tab.border.p-3(data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false")
+
+                                    h5.text-uppercase Thẻ tags
+                            .tab-content#DetailContent
+                                +tabContent("tab1",'show active', "Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum anteipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolordignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hime-naeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet uma pretium eros convallis interdum. Quisque inarcu id dui vulputate mollis eget non arcu. Aenean et nulla purusSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernaturaut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui doloremipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnamaliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnisvoluptas assumenda est, omnis dolor repellendus.Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum anteipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolordignissim semper. Nulla luctus malesuada tincidunt.")
+                                +tabContent("tab2",'', "Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum anteipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolordignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hime-naeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet uma pretium eros convallis interdum. Quisque inarcu id dui vulputate mollis eget non arcu. Aenean et nulla purusSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernaturaut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui doloremipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnamaliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnisvoluptas assumenda est, omnis dolor repellendus.Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum anteipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolordignissim semper. Nulla luctus malesuada tincidunt.imenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis.amet consectetur adipisicing elit. ")
+                                +tabContent("tab3",'', "Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum anteipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolordignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hime-naeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet uma pretium eros convallis interdum. Quisque inarcu id dui vulputate mollis eget non arcu. Aenean et nulla purusSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quaeab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernaturaut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui doloremipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnamaliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnisvoluptas assumenda est, omnis dolor repellendus.Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum anteipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolordignissim semper. Nulla luctus malesuada tincidunt.imenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis.amet consectetur adipisicing elit. ")
+
+                            .relative__product 
+                                +sectionHeader('Sản phẩm tương tự ', [])
+                            each product in products 
+                                .col-lg-4
+                                    +productItem(product.name, product.price, product.image)
