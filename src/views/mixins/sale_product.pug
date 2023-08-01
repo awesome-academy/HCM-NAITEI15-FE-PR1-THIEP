@@ -1,0 +1,14 @@
+mixin saleProduct(products)
+    .sidebar.d-none.d-lg-block
+
+        ul.sibebar__list
+            .sidebarHeader.d-flex.align-items-center.border.text-primary.py-3.ps-3.border.bg-secondary.text-uppercase
+
+                i.bi.bi-gift-fill.mx-2.p-1
+                p sản phẩm khuyến mại
+            each item in products
+                .sale__product.d-flex.align-items-center.justify-content-center.border
+                    img.img-fluid.p-2(src= item.img, alt="sale product")
+                    .product-des.ms-2 
+                        h6.text-uppercase= item.name 
+                        p.text-danger.fw-bold= item.price

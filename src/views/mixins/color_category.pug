@@ -1,0 +1,11 @@
+//- mixins/color_category.pug
+mixin colorCategory(header, items)
+  .color.d-none.d-lg-block
+    ul.sibebar__list
+      .header.d-flex.align-items-center.border.text-primary.py-3.ps-3.border.bg-secondary.text-uppercase
+        i.bi.color__icon.mx-2.p-1.bi-brush-fill
+        p= header
+      each color in items
+        li.sidebar__item.d-flex.align-items-center.justify-content-start.py-3.ps-3.border 
+          i.bi.bi-square-fill.me-3.mx-2.p-1(style=`color: ${color.color}`)
+          span.color__name= color.colorText

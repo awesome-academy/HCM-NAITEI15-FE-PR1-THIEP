@@ -1,0 +1,44 @@
+.product__item {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: ease 0.4s;
+  .review__text {
+    font-style: italic;
+    color: $secondary;
+  }
+  .product__btn button {
+    display: none !important;
+  }
+  .product__des {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    span {
+      color: $secondary;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.02) !important;
+
+    .product__btn button {
+      display: block !important;
+    }
+  }
+}
+#myTab{
+  .nav-link.active {
+      
+      color: $primary;
+      border-radius: 0;
+    }
+  
+    .nav-link:not(.active) {
+      color: $secondary;
+      border-radius: 0;
+    }
+    
+    
+}

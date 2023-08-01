@@ -1,0 +1,10 @@
+mixin pageHeader(previousPage1, currentPage, previousPage2)
+  .page__header.d-flex.my-4
+    .previous__page= previousPage1
+    .page__icon
+      i.bi.bi-caret-right-fill
+    if previousPage2
+      .previous__page2= previousPage2
+      .page__icon
+        i.bi.bi-caret-right-fill
+    .current__page.fw-bold= currentPage

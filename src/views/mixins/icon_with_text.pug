@@ -1,0 +1,7 @@
+mixin iconWithText(iconClass, text, phoneNumber)
+  .col-lg-6.d-flex.justify-content-start.align-items-center.p-3
+    i.text-primary.footer__icon.me-3(class=iconClass)
+    .text
+      p= text
+      h5.fw-bold.text-danger= phoneNumber
+

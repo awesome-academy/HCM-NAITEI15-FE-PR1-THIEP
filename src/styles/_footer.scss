@@ -1,0 +1,15 @@
+
+footer{
+    background-color: $gray-bg;
+    .footer__middle {
+        .footer__icon{
+            border: 3px solid $primary;
+            border-radius: 50%;
+            padding:10px 15px;
+            font-size: 24px;
+        }
+    }
+    .footer__bottom{
+        color: $gray-text;
+    }
+}
