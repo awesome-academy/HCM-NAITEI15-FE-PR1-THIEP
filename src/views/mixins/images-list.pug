@@ -1,0 +1,11 @@
+mixin imagesList(sidebarHeader,icon,images)
+   .sidebar.d-none.d-lg-block
+        ul.sibebar__list
+            .sidebarHeader.d-flex.align-items-center.border.text-primary.py-3.ps-3.border.bg-secondary.text-uppercase
+                i.bi.sidebar__icon.mx-2.p-1.fw-bold(class= icon)
+                p= sidebarHeader
+       
+            .sidebar__img.mt-3 
+                each image in images
+    
+                        img.my-2.mx-1.img-fluid(src=image.src, alt="image.alt")
