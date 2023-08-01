@@ -1,0 +1,17 @@
+extends ../layout/default-layout
+
+block vars
+  - pageTitle = "My Website - 404 page "
+
+block content
+ 
+    #404page 
+        .container 
+            .row.d-flex.align-items-center 
+                .col-lg-6.404__message.text-center 
+                    h1.display-1.fw-bold.text-primary.m-2 404 Error 
+                    p.display-7.fw-bold.m-1 Chúng tôi không tìm thấy kết quả nào phù hợp với tìm kiếm của bạn
+                    p.display-7.fw-bold.m-1 Xin vui lòng trở về trang chủ 
+                    button.btn.btn-secondary.text-uppercase.p-2.m-2 Trang chủ
+                .col-lg-6.404__img
+                    img(src="../images/special_product.jpg", alt=" 404 images") 
