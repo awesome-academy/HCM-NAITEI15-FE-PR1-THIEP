@@ -1,0 +1,20 @@
+mixin modal 
+    button.btn.btn-primary(type='button', data-bs-toggle='modal', data-bs-target='#staticBackdrop') Launch static backdrop modal
+    .modal.fade(id='staticBackdrop', tabindex='-1', aria-labelledby='staticBackdropLabel')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5.modal-title#staticBackdropLabel 
+                    button.btn-close(data-bs-dismiss='modal', aria-label='Close')
+                .modal-body.text-center.px-5
+                    h5.m-2 Đăng kí nhận tin tức của chúng tôi
+                    p Bạn muốn nhanh chóng nhận được tin tức khuyến mãi của chúng tôi hàng tuần ? 
+                    p Hãy đăng kí theo form dưới đây
+                    input.form-control.py-3.mt-2(type="email", id="modalInput", placeholder="Nhâp email của bạn vào đây ..")
+                    button.btn.btn-primary.w-100.py-3.mt-3.text-uppercase.text-light.fw-bold Đăng ký 
+                            
+                    
+                .modal-checkbox.px-5.pb-3
+                    +checkboxField('defaultCheck1', 'Không hiện tại thông báo này ')
+                
+
