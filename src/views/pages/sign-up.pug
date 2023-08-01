@@ -1,0 +1,36 @@
+extends ../layout/default-layout
+
+block vars
+    - pageTitle = "My Website - Sign up "
+
+block content
+
+    #sign-up 
+        .container 
+            +pageHeader('Trang chủ', 'Đăng ký ')
+            .page__container 
+                .form__signup.mt-5 
+
+                    form
+                        h5.text-uppercase.my-3 Thông tin cá nhân
+
+                        .form-row.row
+                            +inputField('Họ và tên :', 'name', 'Name', true, '','col-lg-6')
+                            +inputField('Email :', 'email', 'Email', true, '','col-lg-6')
+
+                        .form-row.row
+                            +inputField('Số điện thoại :', 'name', 'telephone', true, '','col-lg-6')
+                            +inputField('Địa chỉ :', 'email', 'address', true, '','col-lg-6')
+
+                        +checkboxField('defaultCheck1', 'Đăng kí nhận tin tức qua email')
+
+                        h5.text-uppercase.my-3 Thông tin đăng nhập
+
+                        .form-row.row
+                            +inputField('Họ và tên :', 'name', 'Name', true, '','col-lg-6')
+                            +inputField('Email :', 'email', 'Email', false, '','col-lg-6')
+                            +textareaField('Bình luận', 'comment', 3)
+
+                        .form__btn.my-3
+                            button.btn.btn-secondary.py-2.px-3.text-uppercase Quay lại
+                            button.btn.btn-primary.py-2.px-3.text-uppercase.text-light Đăng kí
