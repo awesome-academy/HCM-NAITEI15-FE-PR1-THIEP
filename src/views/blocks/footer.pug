@@ -1,1 +1,92 @@
-//This is the footer page
+
+include ../mixins/footer_item.pug
+include ../mixins/icon_with_text.pug
+
+footer
+    - const navItems = ['Trang chủ', 'Giới thiệu', 'Sản phẩm', 'Tin khuyến mại', 'Dịch vụ', 'Liên hệ']
+    - const cardImages = ["card1.jpg", "card2.jpg", "card3.jpg", "card4.jpg", "card5.jpg","card6.jpg", "card7.jpg", "card8.jpg"]
+    - const item1 = {iconClass: 'bi bi-telephone-fill',text: 'Tư vấn miễn phí',phoneNumber: '1900 650 650'}
+    - const item2 = {iconClass: 'bi bi-wechat',text: 'Góp ý - phản hồi - thắc mắc',phoneNumber: '1900 650 650'}
+    .container
+        .row.footer__top.pt-5
+            .col-lg-3
+                +footerItem('Về chúng tôi', [
+                    {  text: 'Công ty cổ phần công nghệ DKT đã và đang khẳng định vị trí hàng đầu trong lĩnh vực :Thương mại điện tử' },
+
+                    { icon: 'bi bi-geo-alt-fill p-1', text: 'Tầng 4- Tòa nhà Hanoi Group 442 Đội Cấn Ba Đình - Hà Nội' },
+                    { icon: 'bi bi-envelope-fill p-1', text: 'support@dkt.com.vn' },
+                    { icon: 'bi bi-phone-fill p-1', text: '(84-4) 56565668 - (84-4) 37868904' }
+                ])
+
+            .col-lg-9
+                .row 
+                    .col-lg-3
+
+                        +footerItem('Chính sách', [
+                            { text: 'Chính sách giao hàng' },
+                            { text: 'Chính sách đổi sản phẩm ' },
+                            { text: 'Chính sách bảo hành ' },
+                            { text: 'Chính sách trả góp' },
+                            { text: 'Giới thiệu hàng đổi trả'},{ text: 'Vận chuyển miễn phí '},
+                        ])
+
+                    .col-lg-3
+                        +footerItem('Dịch vụ & hỗ trợ', [
+                            {  text: 'Hệ thống cửa hàng' },
+                            {  text: 'Hướng dẫn mua hàng' },
+                            {  text: 'Hướng dẫn thanh toán' },
+                            {  text: 'Tích điểm đổi thưởng' },
+                            {text: 'Dịch vụ đổi trả hàng'},
+                            { text: 'Câu hỏi thường gặp'}
+                        ])
+
+                    .col-lg-3
+                        +footerItem('Tin tức - sự kiện ', [
+                            {  text: 'Tin tức mới nhất' },
+                            {  text: 'Tin tức khuyến mại' },
+                            {  text: 'Tuyển dụng , đãi ngộ' },
+                            {  text: 'Download tài liệu' },
+                            {  text: 'Chương trình đối tác'},
+                            { text: 'Nhà phát triển ứng dụng'}
+                        ])
+
+                    .col-lg-3
+                        +footerItem('Kết nối ', [
+                            { icon: 'bi bi-facebook p-1', text: 'Facebook' },
+                            { icon: 'bi bi-twitter p-1', text: 'Twitter' },
+                            { icon: 'bi bi-google p-1', text: 'Google' },
+                            { icon: 'bi bi-skype p-1', text: 'Skype' },
+                            { icon: 'bi bi-instagram p-1', text: 'Instagram' },
+
+                        ])
+        .row.footer__middle.my-4 
+            .col-lg-6 
+                h6.display-7.p-3 Thanh toán : 
+                .row.gy-3.d-flex.justify-content-start
+                    each image in cardImages
+                        .col-5.col-lg-3
+                            img(src=`../images/${image}`, alt="card image")
+            .col-lg-6 
+                h6.display-7.p-3 Giải đáp nhanh :
+                .row.p-3
+
+
+                    +iconWithText(item1.iconClass, item1.text, item1.phoneNumber)
+                    +iconWithText(item2.iconClass, item2.text, item2.phoneNumber)
+    .footer__bottom.bg-dark
+        .container
+            .row.d-flex.justify-content-between.p-2
+                .footer__left.col-lg-6.d-flex
+                    p Bản quyền thuộc về 
+                        span.text-light DesignTeam.  
+                    p  Phát triển bởi 
+                        span.text-light Bizweb.
+
+                .footer__right.col-lg-6 
+                    ul.d-flex 
+                        each item in navItems
+                            li.mx-2=item 
+
+
+
+
