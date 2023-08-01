@@ -1,6 +1,7 @@
 mixin blogItem(blogDataList)
     each blogData in blogDataList
-        .blog-item
+        a.blog-item(href="blogDetail.html")
+           
             img.blog__img.img-fluid.w-100(src=blogData.imageSrc, alt=blogData.imageAlt)
             .blog__title
                 h5.text-uppercase.my-3= blogData.title

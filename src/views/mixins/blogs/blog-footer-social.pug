@@ -1,0 +1,7 @@
+mixin blogFooterSocial(title, socials)
+  .footer__social.d-flex.align-items-center
+    span.text-uppercase.fw-bold.me-1= title
+    ul.d-flex
+      each social in socials
+        li.m-1
+          i.border.blog__social__icon(class='bi bi-' + social)

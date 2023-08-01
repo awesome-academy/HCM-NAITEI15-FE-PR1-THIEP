@@ -1,0 +1,6 @@
+mixin blogFooterTag(title, tags)
+  .footer__tag.d-flex
+    span.text-uppercase.fw-bold.me-1= title
+    ul.d-flex
+      each tag, index in tags
+        li.blog__tag(class=index === 0 ? 'text-primary' : '')= tag
